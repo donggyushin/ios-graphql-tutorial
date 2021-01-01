@@ -1,0 +1,6 @@
+framework module Pods_IosGraphqlTutorial {
+  umbrella header "Pods-IosGraphqlTutorial-umbrella.h"
+
+  export *
+  module * { export * }
+}

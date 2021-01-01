@@ -1,0 +1,48 @@
+query LaunchList($cursor:String) {
+  launches(after:$cursor) {
+    cursor
+    hasMore
+    launches {
+      id
+      site
+      mission {
+        name
+        missionPatch(size:SMALL)
+      }
+    }
+  }
+}
+
+
+
+query Launch($id:ID!) {
+  launch(id:$id) {
+    id
+    site
+    mission {
+      name
+      missionPatch
+    }
+    rocket {
+      id
+      name
+      type
+    }
+    isBooked
+  }
+}
+
+
+mutation BookTrips($launchIds:[ID!]!) {
+  bookTrips(launchIds:$launchIds) {
+    success
+    message
+  }
+}
+
+
+mutation CancleTrip($launchId:ID!) {
+  cancelTrip(launchId:$launchId) {
+    success
+  }
+}
